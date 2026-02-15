@@ -383,6 +383,9 @@ document.addEventListener("click", (event) => {
     const isOpen = siteNav.classList.toggle("open");
     menuToggle.setAttribute("aria-expanded", String(isOpen));
     document.body.classList.toggle("menu-open", isOpen);
+    if (siteHeader) {
+      siteHeader.classList.toggle("is-floating", isOpen || window.scrollY > 14);
+    }
     return;
   }
 
@@ -390,6 +393,9 @@ document.addEventListener("click", (event) => {
     siteNav.classList.remove("open");
     menuToggle.setAttribute("aria-expanded", "false");
     document.body.classList.remove("menu-open");
+    if (siteHeader) {
+      siteHeader.classList.toggle("is-floating", window.scrollY > 14);
+    }
   }
 });
 
@@ -433,6 +439,11 @@ function setMobileFloatingHeader() {
   const isMobile = window.matchMedia("(max-width: 820px)").matches;
   if (!isMobile) {
     siteHeader.classList.remove("is-floating");
+    return;
+  }
+
+  if (document.body.classList.contains("menu-open")) {
+    siteHeader.classList.add("is-floating");
     return;
   }
 
