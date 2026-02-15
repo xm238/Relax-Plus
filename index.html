@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Relax Plus | Premium Therapy & Massage in Beylikduzu</title>
+    <title>Relax Plus | Beylikduzu Premium Masaj Salonu</title>
     <meta
       name="description"
-      content="Relax Plus is a premium massage salon in Beylikduzu, Istanbul. Private suites, expert therapists, and luxury treatment packages from $200-$300."
+      content="Relax Plus, Beylikduzu Istanbul'da premium masaj deneyimi sunar. Ozel odalar, uzman terapistler ve 200-300 USD arasinda luks paketler."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800&family=Cinzel:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -22,29 +22,37 @@
 
     <header class="site-header" id="top">
       <div class="container header-inner">
-        <a class="brand" href="#top" aria-label="Relax Plus home">
-          <img src="images/logo.webp" alt="Relax Plus logo" width="52" height="52" />
-          <span>Relax Plus</span>
+        <a class="brand" href="#top" data-i18n-attr="aria-label:brand.homeAria">
+          <img src="images/logo.webp" alt="Relax Plus logo" width="1024" height="1024" />
+          <span data-i18n="brand.name">Relax Plus</span>
         </a>
 
-        <button
-          class="menu-toggle"
-          id="menu-toggle"
-          aria-label="Toggle menu"
-          aria-expanded="false"
-          aria-controls="site-nav"
-        >
-          <span></span>
-          <span></span>
-        </button>
-
-        <nav class="site-nav" id="site-nav" aria-label="Primary">
-          <a href="#services">Services</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#book">Book</a>
-          <a class="btn btn-solid nav-cta" href="tel:+905055239866">Call Now</a>
+        <nav class="site-nav" id="site-nav" data-i18n-attr="aria-label:nav.primaryAria">
+          <a href="#services" data-i18n="nav.services">Hizmetler</a>
+          <a href="#gallery" data-i18n="nav.gallery">Galeri</a>
+          <a href="#reviews" data-i18n="nav.reviews">Yorumlar</a>
+          <a href="#book" data-i18n="nav.book">Rezervasyon</a>
+          <a class="btn btn-solid nav-cta" href="tel:+905055239866" data-i18n="nav.callNow">Hemen Ara</a>
         </nav>
+
+        <div class="header-tools">
+          <div class="lang-switch" role="group" data-i18n-attr="aria-label:lang.ariaLabel">
+            <button type="button" class="lang-btn active" data-lang="tr">TR</button>
+            <button type="button" class="lang-btn" data-lang="en">EN</button>
+            <button type="button" class="lang-btn" data-lang="ar">AR</button>
+          </div>
+
+          <button
+            class="menu-toggle"
+            id="menu-toggle"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            data-i18n-attr="aria-label:menu.toggleAria"
+          >
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -52,67 +60,89 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy" data-reveal>
-            <p class="eyebrow">Beylikduzu Premium Massage Lounge</p>
-            <h1>Luxury Recovery Nights. Elite Massage Experience.</h1>
-            <p class="hero-lead">
-              Private therapy suites, skilled therapists, and a high-end atmosphere designed to melt stress fast.
-              Packages start at <strong>$200</strong> and go up to <strong>$300</strong>.
+            <p class="eyebrow" data-i18n="hero.eyebrow">Beylikduzu Premium Masaj Salonu</p>
+            <h1 data-i18n="hero.title">Luks Rahatlama Geceleri. Ust Duzey Masaj Deneyimi.</h1>
+            <p class="hero-lead" data-i18n-html="hero.lead">
+              Ozel terapi odalari, uzman terapistler ve stresi hizla azaltan premium atmosfer. Paketler <strong>$200</strong>
+              ile baslar, <strong>$300</strong> seviyesine kadar cikar.
             </p>
 
             <div class="trust-row">
               <div class="trust-pill">
                 <strong>4.4/5</strong>
-                <span>73 verified reviews</span>
+                <span data-i18n="hero.trust.reviews">73 dogrulanmis yorum</span>
               </div>
               <div class="trust-pill">
-                <strong>Open Late</strong>
-                <span>Closes at 3:00 AM</span>
+                <strong data-i18n="hero.trust.openLabel">Gec Saatlere Kadar Acik</strong>
+                <span data-i18n="hero.trust.openInfo">03:00'te kapanir</span>
               </div>
               <div class="trust-pill">
-                <strong>Prime Location</strong>
+                <strong data-i18n="hero.trust.locationLabel">Merkezi Konum</strong>
                 <span>Avrupa Cd. No:82, D:11</span>
               </div>
             </div>
 
             <div class="hero-actions">
-              <a class="btn btn-solid" href="#book">Reserve Session</a>
-              <a class="btn btn-ghost" href="https://maps.google.com/?q=Adnan+Kahveci,+Avrupa+Cd.+No:82+D:11,+34528+Beylikduzu,+Istanbul" target="_blank" rel="noreferrer">Get Directions</a>
+              <a class="btn btn-solid" href="#book" data-i18n="hero.reserve">Seans Ayirt</a>
+              <a
+                class="btn btn-ghost"
+                href="https://maps.google.com/?q=Adnan+Kahveci,+Avrupa+Cd.+No:82+D:11,+34528+Beylikduzu,+Istanbul"
+                target="_blank"
+                rel="noreferrer"
+                data-i18n="hero.directions"
+                >Yol Tarifi Al</a
+              >
             </div>
 
-            <p class="micro-note">Phone: <a href="tel:+905055239866">0505 523 98 66</a> | Instagram: <a href="https://instagram.com" target="_blank" rel="noreferrer">@relaxplus</a></p>
+            <p class="micro-note">
+              <span data-i18n="hero.phoneLabel">Telefon:</span>
+              <a href="tel:+905055239866">0505 523 98 66</a>
+              |
+              <span data-i18n="hero.instagramLabel">Instagram:</span>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer">@relaxplus</a>
+            </p>
           </div>
 
           <div class="hero-visual" data-reveal>
             <figure class="hero-main">
-              <img src="images/exterior-night.png" alt="Relax Plus exterior at night" loading="eager" />
+              <img
+                src="images/exterior-night.png"
+                alt="Relax Plus dis cephe gece"
+                width="792"
+                height="1000"
+                loading="eager"
+              />
             </figure>
             <figure class="hero-secondary">
-              <img src="images/reception-premium-wide.png" alt="Relax Plus premium reception area" loading="lazy" />
+              <img
+                src="images/reception-premium-wide.png"
+                alt="Relax Plus premium karsilama alani"
+                width="1480"
+                height="956"
+                loading="eager"
+              />
             </figure>
-            <div class="logo-spotlight" aria-hidden="true">
-              <img src="images/logo.webp" alt="" loading="lazy" />
-            </div>
           </div>
         </div>
       </section>
 
-      <section class="stats" aria-label="Highlights">
-        <div class="container stat-grid" data-reveal>
+      <section class="stats" data-reveal>
+        <div class="container stat-grid">
           <article>
             <h2>10K+</h2>
-            <p>Massage sessions delivered</p>
+            <p data-i18n="stats.one">Tamamlanan masaj seansi</p>
           </article>
           <article>
-            <h2>7 Days</h2>
-            <p>Open every day with late-night slots</p>
+            <h2>7 Gun</h2>
+            <p data-i18n="stats.two">Haftanin her gunu acik</p>
           </article>
           <article>
-            <h2>Private</h2>
-            <p>Individual treatment suites with shower</p>
+            <h2 data-i18n="stats.threeTitle">Ozel</h2>
+            <p data-i18n="stats.three">Duslu bireysel terapi odalari</p>
           </article>
           <article>
-            <h2>Fast Booking</h2>
-            <p>Phone + Instagram + direct reservation form</p>
+            <h2 data-i18n="stats.fourTitle">Hizli Rezervasyon</h2>
+            <p data-i18n="stats.four">Telefon + Instagram + form ile aninda</p>
           </article>
         </div>
       </section>
@@ -120,46 +150,48 @@
       <section class="services" id="services">
         <div class="container">
           <div class="section-head" data-reveal>
-            <p class="eyebrow">Packages (USD)</p>
-            <h2>Built to convert. Priced for premium clients.</h2>
-            <p>Every package includes private suite setup, premium towels, aroma ambiance, and post-session tea.</p>
+            <p class="eyebrow" data-i18n="services.eyebrow">Paketler (USD)</p>
+            <h2 data-i18n="services.title">Donusumu yuksek, premium musteriye odakli fiyatlama.</h2>
+            <p data-i18n="services.subtitle">
+              Tum paketlerde ozel oda hazirligi, premium havlu seti, aroma ambiyansi ve seans sonrasi cay servisi vardir.
+            </p>
           </div>
 
           <div class="pricing-grid">
             <article class="pricing-card" data-reveal>
-              <p class="plan-tag">Best Entry</p>
+              <p class="plan-tag" data-i18n="plans.basic.tag">En Iyi Baslangic</p>
               <h3>Deep Reset 60</h3>
               <p class="price">$220</p>
               <ul>
-                <li>60 min deep tissue massage</li>
-                <li>Neck and shoulder pressure work</li>
-                <li>Private shower room access</li>
+                <li data-i18n="plans.basic.item1">60 dk derin doku masaji</li>
+                <li data-i18n="plans.basic.item2">Boyun ve omuz odakli basinclama</li>
+                <li data-i18n="plans.basic.item3">Ozel dus odasi erisimi</li>
               </ul>
-              <a href="#book" class="btn btn-solid">Book Deep Reset</a>
+              <a href="#book" class="btn btn-solid" data-i18n="plans.basic.cta">Deep Reset Ayirt</a>
             </article>
 
             <article class="pricing-card featured" data-reveal>
-              <p class="plan-tag">Most Booked</p>
+              <p class="plan-tag" data-i18n="plans.pro.tag">En Cok Tercih Edilen</p>
               <h3>Royal Recovery 75</h3>
               <p class="price">$260</p>
               <ul>
-                <li>75 min signature therapy blend</li>
-                <li>Hot stone finish + aroma oils</li>
-                <li>Priority appointment slot</li>
+                <li data-i18n="plans.pro.item1">75 dk imza terapi karisimi</li>
+                <li data-i18n="plans.pro.item2">Sicak tas bitisi + aroma yaglari</li>
+                <li data-i18n="plans.pro.item3">Oncelikli randevu saati</li>
               </ul>
-              <a href="#book" class="btn btn-solid">Reserve Royal Recovery</a>
+              <a href="#book" class="btn btn-solid" data-i18n="plans.pro.cta">Royal Recovery Rezerve Et</a>
             </article>
 
             <article class="pricing-card" data-reveal>
-              <p class="plan-tag">Luxury Tier</p>
+              <p class="plan-tag" data-i18n="plans.elite.tag">Luks Seviye</p>
               <h3>Elite Escape 90</h3>
               <p class="price">$300</p>
               <ul>
-                <li>90 min total body therapy ritual</li>
-                <li>Foot ritual and relaxation add-on</li>
-                <li>VIP room preparation</li>
+                <li data-i18n="plans.elite.item1">90 dk tam vucut terapi ritueli</li>
+                <li data-i18n="plans.elite.item2">Ayak ritueli ve ekstra gevseme</li>
+                <li data-i18n="plans.elite.item3">VIP oda hazirligi</li>
               </ul>
-              <a href="#book" class="btn btn-solid">Book Elite Escape</a>
+              <a href="#book" class="btn btn-solid" data-i18n="plans.elite.cta">Elite Escape Ayirt</a>
             </article>
           </div>
         </div>
@@ -168,28 +200,58 @@
       <section class="gallery" id="gallery">
         <div class="container">
           <div class="section-head" data-reveal>
-            <p class="eyebrow">Visual Experience</p>
-            <h2>Designed atmosphere that sells itself in seconds.</h2>
+            <p class="eyebrow" data-i18n="gallery.eyebrow">Mekan Deneyimi</p>
+            <h2 data-i18n="gallery.title">Ilk bakista guven veren atmosfer, saniyeler icinde ikna eden gorunum.</h2>
           </div>
 
           <div class="gallery-grid">
-            <figure class="gallery-item tall" data-reveal>
-              <img src="images/treatment-room-blue.png" alt="Blue mood massage suite" loading="lazy" />
+            <figure class="gallery-item" data-reveal>
+              <img
+                src="images/treatment-room-blue.png"
+                alt="Mavi ambiyans terapi odasi"
+                width="778"
+                height="1246"
+                loading="lazy"
+              />
             </figure>
             <figure class="gallery-item" data-reveal>
-              <img src="images/treatment-room-green.png" alt="Green therapy room with massage bed" loading="lazy" />
-            </figure>
-            <figure class="gallery-item wide" data-reveal>
-              <img src="images/foot-spa-room.png" alt="Relax Plus foot spa room" loading="lazy" />
-            </figure>
-            <figure class="gallery-item" data-reveal>
-              <img src="images/corridor-red.png" alt="Red corridor interior" loading="lazy" />
-            </figure>
-            <figure class="gallery-item" data-reveal>
-              <img src="images/lounge-signature-01.png" alt="Relax Plus lounge with illuminated logo" loading="lazy" />
+              <img
+                src="images/treatment-room-green.png"
+                alt="Yesil terapi odasi"
+                width="1136"
+                height="1142"
+                loading="lazy"
+              />
             </figure>
             <figure class="gallery-item" data-reveal>
-              <img src="images/lounge-signature-02.png" alt="Relax Plus lounge close-up" loading="lazy" />
+              <img
+                src="images/foot-spa-room.png"
+                alt="Ayak spa odasi"
+                width="780"
+                height="996"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="gallery-item" data-reveal>
+              <img src="images/corridor-red.png" alt="Kirmizi koridor" width="782" height="796" loading="lazy" />
+            </figure>
+            <figure class="gallery-item" data-reveal>
+              <img
+                src="images/lounge-signature-01.png"
+                alt="Relax Plus lounge 1"
+                width="1158"
+                height="1152"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="gallery-item" data-reveal>
+              <img
+                src="images/lounge-signature-02.png"
+                alt="Relax Plus lounge 2"
+                width="1156"
+                height="1146"
+                loading="lazy"
+              />
             </figure>
           </div>
         </div>
@@ -198,31 +260,27 @@
       <section class="reviews" id="reviews">
         <div class="container">
           <div class="section-head" data-reveal>
-            <p class="eyebrow">Social Proof</p>
-            <h2>Guests keep coming back.</h2>
+            <p class="eyebrow" data-i18n="reviews.eyebrow">Sosyal Kanit</p>
+            <h2 data-i18n="reviews.title">Misafirler memnun kaliyor, tekrar rezervasyon yapiyor.</h2>
           </div>
 
           <div class="review-grid">
             <article class="review-card" data-reveal>
-              <p>
-                "I had the best massage and the crew was so friendly. Price was worth it."
+              <p data-i18n="reviews.quote1">
+                "Bugun ziyaret ettim. Ekibin ilgisi harikaydi, masaj cok kaliteliydi ve fiyat kesinlikle degerdi."
               </p>
               <h3>The Wolf</h3>
-              <span>5-star review</span>
+              <span data-i18n="reviews.stars">5 yildiz yorum</span>
             </article>
             <article class="review-card" data-reveal>
-              <p>
-                "Good salon and good staff. Clean and professional, you can try."
-              </p>
+              <p data-i18n="reviews.quote2">"Temiz bir salon, iyi personel ve profesyonel hizmet. Kesinlikle tavsiye ederim."</p>
               <h3>Shahed Mohammady</h3>
-              <span>5-star review</span>
+              <span data-i18n="reviews.stars">5 yildiz yorum</span>
             </article>
             <article class="review-card" data-reveal>
-              <p>
-                "Professional staff and the manager is a great person."
-              </p>
+              <p data-i18n="reviews.quote3">"Profesyonel kadro ve guclu yonetim. Tekrar gelmek isteyeceginiz bir yer."</p>
               <h3>Sword fish</h3>
-              <span>5-star review</span>
+              <span data-i18n="reviews.stars">5 yildiz yorum</span>
             </article>
           </div>
         </div>
@@ -231,46 +289,63 @@
       <section class="booking" id="book">
         <div class="container booking-grid">
           <div class="booking-copy" data-reveal>
-            <p class="eyebrow">Book in Seconds</p>
-            <h2>Send your request. Lock your time slot.</h2>
-            <p>
-              Fill this form and your reservation details can be sent to your future backend booking API.
-              Right now it runs as a front-end placeholder with full UI/UX ready.
+            <p class="eyebrow" data-i18n="booking.eyebrow">Saniyeler Icinde Rezervasyon</p>
+            <h2 data-i18n="booking.title">Talebini gonder, seans saatini kilitle.</h2>
+            <p data-i18n="booking.subtitle">
+              Bu form su an front-end placeholder olarak calisiyor. Istedigin backend/API baglantisiyla direkt canli rezervasyona
+              donusturulebilir.
             </p>
             <ul class="booking-points">
-              <li>Address: Adnan Kahveci, Avrupa Cd. No:82 D:11, 34528 Beylikduzu/Istanbul</li>
-              <li>Phone support: 0505 523 98 66</li>
-              <li>Open daily, closes at 3:00 AM</li>
+              <li data-i18n="booking.point1">Adres: Adnan Kahveci, Avrupa Cd. No:82 D:11, 34528 Beylikduzu/Istanbul</li>
+              <li data-i18n="booking.point2">Telefon destegi: 0505 523 98 66</li>
+              <li data-i18n="booking.point3">Her gun acik, 03:00'te kapanir</li>
             </ul>
           </div>
 
           <form class="booking-form" id="booking-form" data-reveal>
             <label>
-              Full Name
-              <input type="text" name="name" placeholder="Your full name" required />
+              <span data-i18n="form.nameLabel">Ad Soyad</span>
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Adiniz Soyadiniz"
+                data-i18n-attr="placeholder:form.namePlaceholder"
+              />
             </label>
             <label>
-              Phone Number
-              <input type="tel" name="phone" placeholder="+90 5XX XXX XX XX" required />
+              <span data-i18n="form.phoneLabel">Telefon Numarasi</span>
+              <input
+                type="tel"
+                name="phone"
+                required
+                placeholder="+90 5XX XXX XX XX"
+                data-i18n-attr="placeholder:form.phonePlaceholder"
+              />
             </label>
             <label>
-              Package
+              <span data-i18n="form.packageLabel">Paket</span>
               <select name="package" required>
-                <option value="">Select package</option>
-                <option value="Deep Reset 60">Deep Reset 60 - $220</option>
-                <option value="Royal Recovery 75">Royal Recovery 75 - $260</option>
-                <option value="Elite Escape 90">Elite Escape 90 - $300</option>
+                <option value="" data-i18n="form.packagePlaceholder">Paket seciniz</option>
+                <option value="Deep Reset 60" data-i18n="form.packageOne">Deep Reset 60 - $220</option>
+                <option value="Royal Recovery 75" data-i18n="form.packageTwo">Royal Recovery 75 - $260</option>
+                <option value="Elite Escape 90" data-i18n="form.packageThree">Elite Escape 90 - $300</option>
               </select>
             </label>
             <label>
-              Preferred Date & Time
+              <span data-i18n="form.datetimeLabel">Tercih Ettiginiz Tarih ve Saat</span>
               <input type="datetime-local" name="datetime" required />
             </label>
             <label>
-              Notes (Optional)
-              <textarea name="notes" rows="4" placeholder="Any preference or request"></textarea>
+              <span data-i18n="form.notesLabel">Notlar (Opsiyonel)</span>
+              <textarea
+                name="notes"
+                rows="4"
+                placeholder="Ozel taleplerinizi yazabilirsiniz"
+                data-i18n-attr="placeholder:form.notesPlaceholder"
+              ></textarea>
             </label>
-            <button type="submit" class="btn btn-solid">Request Reservation</button>
+            <button type="submit" class="btn btn-solid" data-i18n="form.submit">Rezervasyon Talebi Gonder</button>
             <p class="form-feedback" id="form-feedback" aria-live="polite"></p>
           </form>
         </div>
@@ -279,21 +354,21 @@
       <section class="faq">
         <div class="container" data-reveal>
           <div class="section-head">
-            <p class="eyebrow">FAQ</p>
-            <h2>Everything before your first visit.</h2>
+            <p class="eyebrow" data-i18n="faq.eyebrow">Sik Sorulanlar</p>
+            <h2 data-i18n="faq.title">Ilk ziyaret oncesi bilmen gerekenler.</h2>
           </div>
           <div class="faq-list">
             <details>
-              <summary>Do I need to pay online now?</summary>
-              <p>No. Reservation confirmation can be handled by phone or your future backend checkout flow.</p>
+              <summary data-i18n="faq.q1">Odeme simdi online mi yapiliyor?</summary>
+              <p data-i18n="faq.a1">Hayir. Onay sureci telefonla veya daha sonra entegre edilecek checkout sistemiyle ilerleyebilir.</p>
             </details>
             <details>
-              <summary>Is this men-only, women-only, or mixed?</summary>
-              <p>Service policy can be confirmed instantly by phone before booking.</p>
+              <summary data-i18n="faq.q2">Hizmet politikasi nasil?</summary>
+              <p data-i18n="faq.a2">Uygunluk ve detaylar rezervasyon oncesi telefonla netlestirilir.</p>
             </details>
             <details>
-              <summary>Can I book a late-night slot?</summary>
-              <p>Yes, late-night appointments are available based on daily availability until 3:00 AM.</p>
+              <summary data-i18n="faq.q3">Gec saat randevusu alabilir miyim?</summary>
+              <p data-i18n="faq.a3">Evet. Gunluk musaitlige gore 03:00'e kadar randevu alinabilir.</p>
             </details>
           </div>
         </div>
@@ -303,17 +378,20 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <div>
-          <p class="footer-brand">Relax Plus</p>
-          <p>Professional Therapy & Massage</p>
+          <p class="footer-brand" data-i18n="brand.name">Relax Plus</p>
+          <p data-i18n="footer.tagline">Professional Therapy & Massage</p>
         </div>
-        <p>Copyright <span id="year"></span> Relax Plus. All rights reserved.</p>
+        <p>
+          <span data-i18n="footer.copyStart">Telif Hakki</span> <span id="year"></span> Relax Plus.
+          <span data-i18n="footer.copyEnd">Tum haklari saklidir.</span>
+        </p>
       </div>
     </footer>
 
-    <div class="mobile-cta" aria-label="Quick actions">
-      <a href="tel:+905055239866">Call</a>
-      <a href="#book">Book</a>
-      <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+    <div class="mobile-cta" data-i18n-attr="aria-label:mobile.ariaLabel">
+      <a href="tel:+905055239866" data-i18n="mobile.call">Ara</a>
+      <a href="#book" data-i18n="mobile.book">Rezervasyon</a>
+      <a href="https://instagram.com" target="_blank" rel="noreferrer" data-i18n="mobile.instagram">Instagram</a>
     </div>
 
     <script src="script.js"></script>
