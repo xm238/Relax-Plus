@@ -4,103 +4,119 @@ const year = document.getElementById("year");
 const bookingForm = document.getElementById("booking-form");
 const formFeedback = document.getElementById("form-feedback");
 const siteHeader = document.querySelector(".site-header");
-const langButtons = document.querySelectorAll(".lang-btn");
 const metaDescription = document.querySelector('meta[name="description"]');
+
+const safeStorage = {
+  get(key) {
+    try {
+      return window.localStorage.getItem(key);
+    } catch {
+      return null;
+    }
+  },
+  set(key, value) {
+    try {
+      window.localStorage.setItem(key, value);
+    } catch {
+      return;
+    }
+  },
+};
 
 const translations = {
   tr: {
-    "meta.title": "Relax Plus | Beylikduzu Premium Masaj Salonu",
+    "meta.title": "Relax Plus | Beylikdüzü Premium Masaj Salonu",
     "meta.description":
-      "Relax Plus, Beylikduzu Istanbul'da premium masaj deneyimi sunar. Ozel odalar, uzman terapistler ve 200-300 USD arasinda luks paketler.",
+      "Relax Plus, Beylikdüzü İstanbul'da premium masaj deneyimi sunar. Özel odalar, uzman terapistler ve 200-300 USD arasında lüks paketler.",
     "brand.homeAria": "Relax Plus ana sayfa",
     "brand.name": "Relax Plus",
-    "nav.primaryAria": "Ana menu",
+    "nav.primaryAria": "Ana menü",
     "nav.services": "Hizmetler",
     "nav.gallery": "Galeri",
     "nav.reviews": "Yorumlar",
     "nav.book": "Rezervasyon",
     "nav.callNow": "Hemen Ara",
-    "lang.ariaLabel": "Dil secimi",
-    "menu.toggleAria": "Menuyu ac veya kapat",
-    "hero.eyebrow": "Beylikduzu Premium Masaj Salonu",
-    "hero.title": "Luks Rahatlama Geceleri. Ust Duzey Masaj Deneyimi.",
+    "lang.ariaLabel": "Dil seçimi",
+    "menu.toggleAria": "Menüyü aç veya kapat",
+    "hero.eyebrow": "Beylikdüzü Premium Masaj Salonu",
+    "hero.title": "Lüks Rahatlama Geceleri. Üst Düzey Masaj Deneyimi.",
     "hero.lead":
-      "Ozel terapi odalari, uzman terapistler ve stresi hizla azaltan premium atmosfer. Paketler <strong>$200</strong> ile baslar, <strong>$300</strong> seviyesine kadar cikar.",
-    "hero.trust.reviews": "73 dogrulanmis yorum",
-    "hero.trust.openLabel": "Gec Saatlere Kadar Acik",
-    "hero.trust.openInfo": "03:00'te kapanir",
+      "Özel terapi odaları, uzman terapistler ve stresi hızla azaltan premium atmosfer. Paketler <strong>$200</strong> ile başlar, <strong>$300</strong> seviyesine kadar çıkar.",
+    "hero.trust.reviews": "73 doğrulanmış yorum",
+    "hero.trust.openLabel": "Geç Saatlere Kadar Açık",
+    "hero.trust.openInfo": "03:00'te kapanır",
     "hero.trust.locationLabel": "Merkezi Konum",
-    "hero.reserve": "Seans Ayirt",
+    "hero.reserve": "Seans Ayırt",
     "hero.directions": "Yol Tarifi Al",
     "hero.phoneLabel": "Telefon:",
     "hero.instagramLabel": "Instagram:",
-    "stats.one": "Tamamlanan masaj seansi",
-    "stats.two": "Haftanin her gunu acik",
-    "stats.threeTitle": "Ozel",
-    "stats.three": "Duslu bireysel terapi odalari",
-    "stats.fourTitle": "Hizli Rezervasyon",
-    "stats.four": "Telefon + Instagram + form ile aninda",
+    "stats.one": "Tamamlanan masaj seansı",
+    "stats.two": "Haftanın her günü açık",
+    "stats.threeTitle": "Özel",
+    "stats.three": "Duşlu bireysel terapi odaları",
+    "stats.fourTitle": "Hızlı Rezervasyon",
+    "stats.four": "Telefon + Instagram + form ile anında",
     "services.eyebrow": "Paketler (USD)",
-    "services.title": "Donusumu yuksek, premium musteriye odakli fiyatlama.",
+    "services.title": "Dönüşümü yüksek, premium müşteriye odaklı fiyatlama.",
     "services.subtitle":
-      "Tum paketlerde ozel oda hazirligi, premium havlu seti, aroma ambiyansi ve seans sonrasi cay servisi vardir.",
-    "plans.basic.tag": "En Iyi Baslangic",
-    "plans.basic.item1": "60 dk derin doku masaji",
-    "plans.basic.item2": "Boyun ve omuz odakli basinclama",
-    "plans.basic.item3": "Ozel dus odasi erisimi",
-    "plans.basic.cta": "Deep Reset Ayirt",
-    "plans.pro.tag": "En Cok Tercih Edilen",
-    "plans.pro.item1": "75 dk imza terapi karisimi",
-    "plans.pro.item2": "Sicak tas bitisi + aroma yaglari",
-    "plans.pro.item3": "Oncelikli randevu saati",
+      "Tüm paketlerde özel oda hazırlığı, premium havlu seti, aroma ambiyansı ve seans sonrası çay servisi vardır.",
+    "plans.basic.tag": "En İyi Başlangıç",
+    "plans.basic.item1": "60 dk derin doku masajı",
+    "plans.basic.item2": "Boyun ve omuz odaklı basınçlama",
+    "plans.basic.item3": "Özel duş odası erişimi",
+    "plans.basic.cta": "Deep Reset Ayırt",
+    "plans.pro.tag": "En Çok Tercih Edilen",
+    "plans.pro.item1": "75 dk imza terapi karışımı",
+    "plans.pro.item2": "Sıcak taş bitişi + aroma yağları",
+    "plans.pro.item3": "Öncelikli randevu saati",
     "plans.pro.cta": "Royal Recovery Rezerve Et",
-    "plans.elite.tag": "Luks Seviye",
-    "plans.elite.item1": "90 dk tam vucut terapi ritueli",
-    "plans.elite.item2": "Ayak ritueli ve ekstra gevseme",
-    "plans.elite.item3": "VIP oda hazirligi",
-    "plans.elite.cta": "Elite Escape Ayirt",
+    "plans.elite.tag": "Lüks Seviye",
+    "plans.elite.item1": "90 dk tam vücut terapi ritüeli",
+    "plans.elite.item2": "Ayak ritüeli ve ekstra gevşeme",
+    "plans.elite.item3": "VIP oda hazırlığı",
+    "plans.elite.cta": "Elite Escape Ayırt",
     "gallery.eyebrow": "Mekan Deneyimi",
-    "gallery.title": "Ilk bakista guven veren atmosfer, saniyeler icinde ikna eden gorunum.",
-    "reviews.eyebrow": "Sosyal Kanit",
-    "reviews.title": "Misafirler memnun kaliyor, tekrar rezervasyon yapiyor.",
+    "gallery.title": "İlk bakışta güven veren atmosfer, saniyeler içinde ikna eden görünüm.",
+    "reviews.eyebrow": "Sosyal Kanıt",
+    "reviews.title": "Misafirler memnun kalıyor, tekrar rezervasyon yapıyor.",
     "reviews.quote1":
-      '"Bugun ziyaret ettim. Ekibin ilgisi harikaydi, masaj cok kaliteliydi ve fiyat kesinlikle degerdi."',
+      '"Bugün ziyaret ettim. Ekibin ilgisi harikaydı, masaj çok kaliteliydi ve fiyat kesinlikle değerdi."',
     "reviews.quote2": '"Temiz bir salon, iyi personel ve profesyonel hizmet. Kesinlikle tavsiye ederim."',
-    "reviews.quote3": '"Profesyonel kadro ve guclu yonetim. Tekrar gelmek isteyeceginiz bir yer."',
-    "reviews.stars": "5 yildiz yorum",
-    "booking.eyebrow": "Saniyeler Icinde Rezervasyon",
-    "booking.title": "Talebini gonder, seans saatini kilitle.",
+    "reviews.quote3": '"Profesyonel kadro ve güçlü yönetim. Tekrar gelmek isteyeceğiniz bir yer."',
+    "reviews.stars": "5 yıldız yorum",
+    "booking.eyebrow": "Saniyeler İçinde Rezervasyon",
+    "booking.title": "Talebini gönder, seans saatini kilitle.",
     "booking.subtitle":
-      "Bu form su an front-end placeholder olarak calisiyor. Istedigin backend/API baglantisiyla direkt canli rezervasyona donusturulebilir.",
-    "booking.point1": "Adres: Adnan Kahveci, Avrupa Cd. No:82 D:11, 34528 Beylikduzu/Istanbul",
-    "booking.point2": "Telefon destegi: 0505 523 98 66",
-    "booking.point3": "Her gun acik, 03:00'te kapanir",
+      "Bu form şu an front-end placeholder olarak çalışıyor. İstediğin backend/API bağlantısıyla direkt canlı rezervasyona dönüştürülebilir.",
+    "booking.point1": "Adres: Adnan Kahveci, Avrupa Cd. No:82 D:11, 34528 Beylikdüzü/İstanbul",
+    "booking.point2": "Telefon desteği: 0505 523 98 66",
+    "booking.point3": "Her gün açık, 03:00'te kapanır",
     "form.nameLabel": "Ad Soyad",
-    "form.namePlaceholder": "Adiniz Soyadiniz",
-    "form.phoneLabel": "Telefon Numarasi",
+    "form.namePlaceholder": "Adınız Soyadınız",
+    "form.phoneLabel": "Telefon Numarası",
     "form.phonePlaceholder": "+90 5XX XXX XX XX",
     "form.packageLabel": "Paket",
-    "form.packagePlaceholder": "Paket seciniz",
+    "form.packagePlaceholder": "Paket seçiniz",
     "form.packageOne": "Deep Reset 60 - $220",
     "form.packageTwo": "Royal Recovery 75 - $260",
     "form.packageThree": "Elite Escape 90 - $300",
-    "form.datetimeLabel": "Tercih Ettiginiz Tarih ve Saat",
+    "form.datetimeLabel": "Tercih Ettiğiniz Tarih ve Saat",
     "form.notesLabel": "Notlar (Opsiyonel)",
-    "form.notesPlaceholder": "Ozel taleplerinizi yazabilirsiniz",
-    "form.submit": "Rezervasyon Talebi Gonder",
-    "form.feedbackSuccess": "Talebiniz alindi. Canliya almak icin bu formu backend rezervasyon API'sine baglayin.",
-    "faq.eyebrow": "Sik Sorulanlar",
-    "faq.title": "Ilk ziyaret oncesi bilmen gerekenler.",
-    "faq.q1": "Odeme simdi online mi yapiliyor?",
-    "faq.a1": "Hayir. Onay sureci telefonla veya daha sonra entegre edilecek checkout sistemiyle ilerleyebilir.",
-    "faq.q2": "Hizmet politikasi nasil?",
-    "faq.a2": "Uygunluk ve detaylar rezervasyon oncesi telefonla netlestirilir.",
-    "faq.q3": "Gec saat randevusu alabilir miyim?",
-    "faq.a3": "Evet. Gunluk musaitlige gore 03:00'e kadar randevu alinabilir.",
+    "form.notesPlaceholder": "Özel taleplerinizi yazabilirsiniz",
+    "form.submit": "Rezervasyon Talebi Gönder",
+    "form.feedbackSuccess": "Talebiniz alındı. Canlıya almak için bu formu backend rezervasyon API'sine bağlayın.",
+    "faq.eyebrow": "Sık Sorulanlar",
+    "faq.title": "İlk ziyaret öncesi bilmen gerekenler.",
+    "faq.q1": "Ödeme şimdi online mı yapılıyor?",
+    "faq.a1": "Hayır. Onay süreci telefonla veya daha sonra entegre edilecek checkout sistemiyle ilerleyebilir.",
+    "faq.q2": "Hizmet politikası nasıl?",
+    "faq.a2": "Uygunluk ve detaylar rezervasyon öncesi telefonla netleştirilir.",
+    "faq.q3": "Geç saat randevusu alabilir miyim?",
+    "faq.a3": "Evet. Günlük müsaitliğe göre 03:00'e kadar randevu alınabilir.",
     "footer.tagline": "Professional Therapy & Massage",
-    "footer.copyStart": "Telif Hakki",
-    "footer.copyEnd": "Tum haklari saklidir.",
-    "mobile.ariaLabel": "Hizli islem tuslari",
+    "footer.copyStart": "Telif Hakkı",
+    "footer.copyEnd": "Tüm hakları saklıdır.",
+    "mobile.ariaLabel": "Hızlı işlem tuşları",
     "mobile.call": "Ara",
     "mobile.book": "Rezervasyon",
     "mobile.instagram": "Instagram",
@@ -341,7 +357,7 @@ function applyLanguage(lang) {
     metaDescription.setAttribute("content", dictionary["meta.description"]);
   }
 
-  langButtons.forEach((button) => {
+  document.querySelectorAll(".lang-btn").forEach((button) => {
     const isActive = button.dataset.lang === lang;
     button.classList.toggle("active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
@@ -352,33 +368,34 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
-langButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const nextLang = button.dataset.lang;
-    applyLanguage(nextLang);
-    localStorage.setItem("relax_plus_lang", nextLang);
-  });
-});
+document.addEventListener("click", (event) => {
+  const langButton = event.target.closest(".lang-btn");
+  if (langButton) {
+    const nextLang = langButton.dataset.lang;
+    if (nextLang && translations[nextLang]) {
+      applyLanguage(nextLang);
+      safeStorage.set("relax_plus_lang", nextLang);
+    }
+    return;
+  }
 
-const savedLanguage = localStorage.getItem("relax_plus_lang");
-const initialLanguage = savedLanguage && translations[savedLanguage] ? savedLanguage : "tr";
-applyLanguage(initialLanguage);
-
-if (menuToggle && siteNav) {
-  menuToggle.addEventListener("click", () => {
+  if (menuToggle && siteNav && event.target.closest("#menu-toggle")) {
     const isOpen = siteNav.classList.toggle("open");
     menuToggle.setAttribute("aria-expanded", String(isOpen));
     document.body.classList.toggle("menu-open", isOpen);
-  });
+    return;
+  }
 
-  siteNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      siteNav.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      document.body.classList.remove("menu-open");
-    });
-  });
-}
+  if (menuToggle && siteNav && event.target.closest("#site-nav a")) {
+    siteNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("menu-open");
+  }
+});
+
+const savedLanguage = safeStorage.get("relax_plus_lang");
+const initialLanguage = savedLanguage && translations[savedLanguage] ? savedLanguage : "tr";
+applyLanguage(initialLanguage);
 
 const revealItems = document.querySelectorAll("[data-reveal]");
 const shouldSkipReveal =
