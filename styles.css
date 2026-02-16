@@ -800,27 +800,27 @@ body.lang-ar .booking-points li::before {
 
   .brand {
     position: absolute;
-    left: 0;
-    right: 0;
-    width: 100%;
-    max-width: none;
-    transform: none;
-    padding-inline: 4.9rem;
+    left: 50%;
+    right: auto;
+    width: auto;
+    max-width: calc(100% - 7.2rem);
+    transform: translateX(-50%);
+    padding-inline: 0;
     font-size: 1.28rem;
-    gap: 0;
+    gap: 0.42rem;
     justify-content: center;
-    text-align: center;
-    overflow: hidden;
+    text-align: left;
+    overflow: visible;
     z-index: 1;
   }
 
   .brand img {
-    position: absolute;
-    left: 0.82rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 64px;
-    height: 64px;
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 60px;
+    height: 60px;
     flex-shrink: 0;
   }
 
@@ -829,6 +829,7 @@ body.lang-ar .booking-points li::before {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 100%;
   }
 
   .menu-toggle {
