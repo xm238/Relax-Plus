@@ -3,7 +3,6 @@ const siteNav = document.getElementById("site-nav");
 const year = document.getElementById("year");
 const bookingForm = document.getElementById("booking-form");
 const formFeedback = document.getElementById("form-feedback");
-const siteHeader = document.querySelector(".site-header");
 const metaDescription = document.querySelector('meta[name="description"]');
 
 const safeStorage = {
@@ -386,9 +385,6 @@ document.addEventListener("click", (event) => {
     const isOpen = siteNav.classList.toggle("open");
     menuToggle.setAttribute("aria-expanded", String(isOpen));
     document.body.classList.toggle("menu-open", isOpen);
-    if (siteHeader) {
-      siteHeader.classList.toggle("is-floating", isOpen || window.scrollY > 14);
-    }
     return;
   }
 
@@ -396,9 +392,6 @@ document.addEventListener("click", (event) => {
     siteNav.classList.remove("open");
     menuToggle.setAttribute("aria-expanded", "false");
     document.body.classList.remove("menu-open");
-    if (siteHeader) {
-      siteHeader.classList.toggle("is-floating", window.scrollY > 14);
-    }
   }
 });
 
@@ -433,45 +426,6 @@ if (shouldSkipReveal) {
 } else {
   revealItems.forEach((item) => item.classList.add("in-view"));
 }
-
-function setMobileFloatingHeader() {
-  if (!siteHeader) {
-    return;
-  }
-
-  const isMobile = window.matchMedia("(max-width: 820px)").matches;
-  if (!isMobile) {
-    siteHeader.classList.remove("is-floating");
-    return;
-  }
-
-  if (document.body.classList.contains("menu-open")) {
-    siteHeader.classList.add("is-floating");
-    return;
-  }
-
-  siteHeader.classList.toggle("is-floating", window.scrollY > 14);
-}
-
-let scrollTicking = false;
-window.addEventListener(
-  "scroll",
-  () => {
-    if (scrollTicking) {
-      return;
-    }
-
-    scrollTicking = true;
-    window.requestAnimationFrame(() => {
-      setMobileFloatingHeader();
-      scrollTicking = false;
-    });
-  },
-  { passive: true }
-);
-
-window.addEventListener("resize", setMobileFloatingHeader);
-setMobileFloatingHeader();
 
 if (bookingForm && formFeedback) {
   bookingForm.addEventListener("submit", (event) => {
