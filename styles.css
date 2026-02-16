@@ -874,7 +874,10 @@ body.lang-ar .booking-points li::before {
 
   .site-nav .nav-lang-switch {
     margin: 0.42rem 0 0;
-    width: max-content;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.22rem;
   }
 
   .header-tools {
@@ -889,9 +892,11 @@ body.lang-ar .booking-points li::before {
   }
 
   .lang-btn {
-    min-width: 2.95rem;
+    min-width: 0;
+    width: 100%;
     padding: 0.42rem 0.62rem;
     font-size: 0.82rem;
+    text-align: center;
   }
 
   .trust-row {
