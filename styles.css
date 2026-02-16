@@ -800,7 +800,7 @@ body.lang-ar .booking-points li::before {
 
   .brand {
     position: absolute;
-    left: 50%;
+    left: calc(50% - 2rem);
     right: auto;
     width: auto;
     max-width: calc(100% - 7.2rem);
